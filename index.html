@@ -49,9 +49,8 @@
             <p class="eyebrow">Clases 100% online</p>
             <h1>Pasá de entender a hablar inglés</h1>
             <p class="hero-text">
-              Clases online prácticas, cercanas y enfocadas en ayudarte a comunicarte con
-              confianza, ya sea para viajar, estudiar, trabajar o prepararte para convertirte
-              en intérprete médico.
+              Clases online prácticas para que ganes confianza al hablar inglés: para viajar,
+              estudiar, trabajar o formarte como intérprete médico.
             </p>
             <div class="hero-actions" aria-label="Acciones principales">
               <a class="button primary" href="#contacto">Quiero empezar</a>
@@ -67,16 +66,39 @@
 
       <section class="trust-strip" aria-label="Beneficios principales">
         <div>
-          <strong>Online</strong>
-          <span>Aprendé desde donde estés</span>
+          <span class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M4 5h16v11H4zM9 20h6M12 16v4" />
+            </svg>
+          </span>
+          <span class="trust-copy">
+            <strong>Online</strong>
+            <span>Aprendé desde donde estés</span>
+          </span>
         </div>
         <div>
-          <strong>Práctico</strong>
-          <span>Situaciones reales desde la primera clase</span>
+          <span class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M5 5h14v10H9l-4 4zM8 9h8M8 12h5" />
+            </svg>
+          </span>
+          <span class="trust-copy">
+            <strong>Práctico</strong>
+            <span>Situaciones reales desde la primera clase</span>
+          </span>
         </div>
         <div>
-          <strong>Personalizado</strong>
-          <span>Objetivos claros para cada estudiante</span>
+          <span class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <circle cx="12" cy="12" r="8" />
+              <circle cx="12" cy="12" r="3" />
+              <path d="m14 10 5-5M16 5h3v3" />
+            </svg>
+          </span>
+          <span class="trust-copy">
+            <strong>Personalizado</strong>
+            <span>Clases adaptadas a tus metas</span>
+          </span>
         </div>
       </section>
 
@@ -93,29 +115,44 @@
         <div class="carousel-shell">
           <div class="services-track" aria-label="Servicios">
             <article class="service-card">
-              <span class="service-icon" aria-hidden="true">01</span>
-              <h3>Conversación</h3>
-              <p>Ganale confianza al speaking con temas reales, correcciones claras y fluidez progresiva.</p>
+              <button class="service-toggle" type="button" aria-expanded="false" aria-controls="service-conversacion">
+                <span class="service-icon" aria-hidden="true">01</span>
+                <h3>Conversación</h3>
+                <span class="service-toggle-symbol" aria-hidden="true"></span>
+              </button>
+              <p class="service-description" id="service-conversacion">Ganale confianza al speaking con temas reales, correcciones claras y fluidez progresiva.</p>
             </article>
             <article class="service-card">
-              <span class="service-icon" aria-hidden="true">02</span>
-              <h3>Inglés para viajar</h3>
-              <p>Practicá situaciones de aeropuerto, hotel, transporte, compras y conversaciones cotidianas.</p>
+              <button class="service-toggle" type="button" aria-expanded="false" aria-controls="service-viajes">
+                <span class="service-icon" aria-hidden="true">02</span>
+                <h3>Inglés para viajar</h3>
+                <span class="service-toggle-symbol" aria-hidden="true"></span>
+              </button>
+              <p class="service-description" id="service-viajes">Practicá situaciones de aeropuerto, hotel, transporte, compras y conversaciones cotidianas.</p>
             </article>
             <article class="service-card">
-              <span class="service-icon" aria-hidden="true">03</span>
-              <h3>Entrevistas laborales</h3>
-              <p>Prepará respuestas, vocabulario profesional y seguridad para entrevistas en inglés.</p>
+              <button class="service-toggle" type="button" aria-expanded="false" aria-controls="service-entrevistas">
+                <span class="service-icon" aria-hidden="true">03</span>
+                <h3>Entrevistas laborales</h3>
+                <span class="service-toggle-symbol" aria-hidden="true"></span>
+              </button>
+              <p class="service-description" id="service-entrevistas">Prepará respuestas, vocabulario profesional y seguridad para entrevistas en inglés.</p>
             </article>
             <article class="service-card">
-              <span class="service-icon" aria-hidden="true">04</span>
-              <h3>Inglés para estudios</h3>
-              <p>Mejorá lectura, comprensión, escritura y expresión oral para avanzar en objetivos académicos.</p>
+              <button class="service-toggle" type="button" aria-expanded="false" aria-controls="service-estudios">
+                <span class="service-icon" aria-hidden="true">04</span>
+                <h3>Inglés para estudios</h3>
+                <span class="service-toggle-symbol" aria-hidden="true"></span>
+              </button>
+              <p class="service-description" id="service-estudios">Mejorá lectura, comprensión, escritura y expresión oral para avanzar en objetivos académicos.</p>
             </article>
-            <article class="service-card featured">
-              <span class="service-icon" aria-hidden="true">05</span>
-              <h3>Convertite en intérprete médico</h3>
-              <p>
+            <article class="service-card featured is-open">
+              <button class="service-toggle" type="button" aria-expanded="true" aria-controls="service-interprete">
+                <span class="service-icon" aria-hidden="true">05</span>
+                <h3>Convertite en intérprete médico</h3>
+                <span class="service-toggle-symbol" aria-hidden="true"></span>
+              </button>
+              <p class="service-description" id="service-interprete">
                 Prepará tu inglés para trabajar como intérprete médico con práctica guiada,
                 vocabulario específico y situaciones reales del área de salud.
               </p>
@@ -128,7 +165,7 @@
       <section class="about section-anchor" id="sobre-mi">
         <div class="about-inner">
           <div class="about-photo">
-            <img src="assets/FotoCami.jfif" alt="Foto de Cami, profesora de inglés e intérprete médico" />
+            <img src="assets/FotoCami.jfif" alt="Foto de Cami, profesora de inglés e intérprete médico" loading="lazy" />
           </div>
 
           <div class="about-copy">
@@ -160,6 +197,10 @@
             mejor opción de clase.
           </p>
         </div>
+
+        <a class="button primary mobile-whatsapp-cta" href="#" data-social="whatsapp" target="_blank" rel="noreferrer">
+          Consultar por WhatsApp
+        </a>
 
         <div class="contact-layout">
           <form class="contact-form" name="contacto-english-with-cami" method="POST" data-netlify="true">

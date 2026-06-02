@@ -271,6 +271,24 @@ h3 {
   color: var(--muted);
 }
 
+.trust-icon {
+  display: none;
+}
+
+.trust-icon svg {
+  fill: none;
+  height: 24px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  width: 24px;
+}
+
+.mobile-whatsapp-cta {
+  display: none;
+}
+
 .services,
 .contact {
   padding: 92px 24px;
@@ -327,6 +345,21 @@ h3 {
 
 .service-card.featured p {
   color: rgba(255, 255, 255, 0.82);
+}
+
+.service-toggle {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  display: block;
+  font: inherit;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.service-toggle-symbol {
+  display: none;
 }
 
 .service-icon {
@@ -542,6 +575,16 @@ textarea:focus {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .floating-contact {
+    animation: none;
+  }
+}
+
 .site-footer {
   background: var(--ink);
   color: var(--white);
@@ -608,6 +651,48 @@ textarea:focus {
 
   .trust-strip {
     grid-template-columns: 1fr;
+    padding: 8px 18px;
+  }
+
+  .trust-strip div {
+    align-items: center;
+    display: flex;
+    gap: 14px;
+    min-height: 0;
+    padding: 10px 0;
+    text-align: left;
+  }
+
+  .trust-strip div + div {
+    border-top: 1px solid rgba(125, 85, 184, 0.1);
+  }
+
+  .trust-icon {
+    align-items: center;
+    background: var(--rose-soft);
+    border-radius: 50%;
+    color: var(--violet);
+    display: inline-flex;
+    flex: 0 0 auto;
+    height: 40px;
+    justify-content: center;
+    width: 40px;
+  }
+
+  .trust-copy {
+    display: block;
+  }
+
+  .trust-strip strong {
+    font-size: 1.28rem;
+    line-height: 1.1;
+  }
+
+  .trust-strip span:not(.trust-icon):not(.trust-copy) {
+    display: block;
+    font-size: 0.88rem;
+    line-height: 1.35;
+    margin-top: 3px;
   }
 
   .services-track {
@@ -617,7 +702,12 @@ textarea:focus {
 
 @media (max-width: 560px) {
   .nav {
+    min-height: 66px;
     padding: 0 16px;
+  }
+
+  .nav-menu {
+    top: 66px;
   }
 
   .brand span {
@@ -630,7 +720,7 @@ textarea:focus {
   }
 
   h1 {
-    font-size: 3.05rem;
+    font-size: 2.6rem;
   }
 
   .hero-inner,
@@ -641,9 +731,47 @@ textarea:focus {
     padding-right: 18px;
   }
 
+  .hero-inner {
+    gap: 24px;
+    padding-bottom: 42px;
+    padding-top: 30px;
+  }
+
+  .hero-text {
+    font-size: 1rem;
+    margin-top: 18px;
+  }
+
+  .hero-actions {
+    gap: 10px;
+    margin-top: 24px;
+  }
+
   .hero-actions,
   .button {
     width: 100%;
+  }
+
+  .hero-actions .button.secondary {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    min-height: 36px;
+    padding: 6px 12px;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .services,
+  .about,
+  .contact {
+    padding-bottom: 68px;
+    padding-top: 68px;
+  }
+
+  .services-track {
+    gap: 14px;
+    padding-bottom: 0;
   }
 
   .service-card,
@@ -652,8 +780,83 @@ textarea:focus {
     padding: 24px;
   }
 
+  .service-card {
+    min-height: 0;
+    padding: 0;
+  }
+
+  .service-toggle {
+    align-items: center;
+    cursor: pointer;
+    display: grid;
+    gap: 14px;
+    grid-template-columns: 44px minmax(0, 1fr) 22px;
+    min-height: 76px;
+    padding: 14px 18px;
+  }
+
+  .service-toggle h3 {
+    font-size: 1.32rem;
+  }
+
+  .service-toggle-symbol {
+    display: block;
+    height: 22px;
+    position: relative;
+    width: 22px;
+  }
+
+  .service-toggle-symbol::before,
+  .service-toggle-symbol::after {
+    background: currentColor;
+    content: "";
+    height: 2px;
+    left: 3px;
+    position: absolute;
+    top: 10px;
+    transition: transform 180ms ease;
+    width: 16px;
+  }
+
+  .service-toggle-symbol::after {
+    transform: rotate(90deg);
+  }
+
+  .service-card.is-open .service-toggle-symbol::after {
+    transform: rotate(0);
+  }
+
+  .service-description {
+    margin: 0;
+    padding: 0 18px 18px 76px;
+  }
+
+  .service-card:not(.is-open) .service-description {
+    display: none;
+  }
+
+  .service-icon {
+    height: 44px;
+    margin-bottom: 0;
+    width: 44px;
+  }
+
+  .service-card p {
+    margin-top: 0;
+  }
+
+  .about-photo {
+    max-width: 240px;
+  }
+
+  .mobile-whatsapp-cta {
+    display: inline-flex;
+    margin: -12px auto 24px;
+    max-width: 1060px;
+  }
+
   .floating-actions {
-    bottom: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom));
     right: 16px;
   }
 

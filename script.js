@@ -1,6 +1,8 @@
 const navToggle = document.querySelector(".nav-toggle");
 const navMenu = document.querySelector(".nav-menu");
 const navLinks = document.querySelectorAll(".nav-menu a");
+const serviceToggles = document.querySelectorAll(".service-toggle");
+const mobileServicesQuery = window.matchMedia("(max-width: 560px)");
 
 const contactConfig = {
   instagramUrl: "https://www.instagram.com/ingles.online.cami/",
@@ -72,6 +74,39 @@ navToggle.addEventListener("click", () => {
 navLinks.forEach((link) => {
   link.addEventListener("click", closeMenu);
 });
+
+function syncServiceToggleState() {
+  serviceToggles.forEach((toggle) => {
+    const card = toggle.closest(".service-card");
+    const isExpanded = !mobileServicesQuery.matches || card.classList.contains("is-open");
+    toggle.disabled = !mobileServicesQuery.matches;
+    toggle.setAttribute("aria-expanded", String(isExpanded));
+  });
+}
+
+serviceToggles.forEach((toggle) => {
+  toggle.addEventListener("click", () => {
+    if (!mobileServicesQuery.matches) {
+      return;
+    }
+
+    const card = toggle.closest(".service-card");
+    const willOpen = !card.classList.contains("is-open");
+
+    serviceToggles.forEach((otherToggle) => {
+      otherToggle.closest(".service-card").classList.remove("is-open");
+      otherToggle.setAttribute("aria-expanded", "false");
+    });
+
+    if (willOpen) {
+      card.classList.add("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+    }
+  });
+});
+
+mobileServicesQuery.addEventListener("change", syncServiceToggleState);
+syncServiceToggleState();
 
 document.querySelector(".contact-form")?.addEventListener("submit", submitWithMailtoFallback);
 
